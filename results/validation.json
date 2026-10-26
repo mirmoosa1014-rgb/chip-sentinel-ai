@@ -1,0 +1,15 @@
+{
+  "unit_and_integration_tests": 11,
+  "tests_pass": true,
+  "frontend_build": "pass",
+  "clean_npm_ci": "pass",
+  "quick_experiment_episodes_per_policy": 30,
+  "full_experiment_episodes_per_policy": 160,
+  "live_http_smoke": "pass",
+  "optional_fastapi_testclient": "pass",
+  "browser_interactions": "pass: live API rendering, next test, reveal, 3D drag, transcript download, mobile overflow check",
+  "remote_ci": "not run",
+  "publication": "pending user confirmation",
+  "recovery": "transcript source recovery; scientific outputs regenerated; lockfile regenerated",
+  "authentic_screenshots": "desktop/mobile captured and visually inspected during verification; not included as separate Library artifacts"
+}

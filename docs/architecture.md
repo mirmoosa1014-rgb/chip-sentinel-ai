@@ -1,0 +1,9 @@
+# Architecture
+
+`engine.py` → `policy.py` / `model.py` → `api.py` → React workbench. `experiment.py` produces saved evidence and `visuals.py` plots that evidence. Version 1 netlists are topologically ordered 4-bit buses, with module-prefixed IDs, exactly one declared output, and input names `a`, `b`, `sel`. Forward references, cycles, duplicates, unknown gates, wrong arity and non-4-bit widths are rejected. Bit 0 is least significant. Values are masked to 15. ADD is implemented by a carry loop, independent from the arithmetic oracle in tests. OP 0/1/2/3 selects ADD/AND/OR/XOR. Zero and negative flags are derived from the result. Flags do not include carry/overflow.
+
+A fault forces the entire output bus to zero/15, bitwise inverts it, or disconnects it to deterministic zero. Fan-out observes the altered value consistently. One fault exists per episode or the circuit is normal. Register-bank writes copy old source values before any destination is committed, reset clears all four registers. The bank is a separate primitive; no claim of sequential-diagnosis coverage is made.
+
+The active policy consumes only observed vectors and responses and counterfactual outputs under each public hypothesis. Hidden fault labels are confined to simulation and evaluation. Entropy selection cannot distinguish hypotheses with identical signatures. The interface's 3D coordinates are a visual layout, not chip fabrication coordinates. Canvas projects actual three-dimensional points under a user-controlled rotation. There is no paid API, account, telemetry, or external dataset.
+
+The dependency-free HTTP service binds loopback only, validates payload bounds, rejects oversize requests, and serves only the frontend build. FastAPI is optional. Jobs are bounded and do not need a background job system. The Vite frontend cancels stale fetches. No untrusted models can be uploaded; trained weights are plain JSON.

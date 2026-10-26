@@ -1,0 +1,37 @@
+{
+  "schema": [
+    "bias",
+    "consistency_fraction",
+    "bit_error_fraction",
+    "observed_fault_fraction",
+    "normal_candidate",
+    "gate_fanin",
+    "test_fraction"
+  ],
+  "weights": [
+    -0.8066161910020824,
+    1.7135083562428544,
+    -1.699238414375719,
+    -0.0821563554098268,
+    -0.0778562639491972,
+    -0.1984427617917078,
+    -0.31686582440232497
+  ],
+  "train_families": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "validation_families": [
+    4,
+    5
+  ],
+  "test_families": [
+    6,
+    7
+  ],
+  "seed": 130,
+  "rows": 5040,
+  "calibrated": false
+}

@@ -1,0 +1,360 @@
+{
+  "episodes_per_policy": 160,
+  "budget": 8,
+  "pool_vectors": 48,
+  "summary": {
+    "fixed": {
+      "remaining": 4.1,
+      "tests_to_k3_capped9": 7.20625,
+      "top1_exact": 0.36875,
+      "top3_exact": 0.8125,
+      "top1_equivalent": 0.7625,
+      "consistency_top1_exact": 0.375,
+      "consistency_top3_exact": 0.7625
+    },
+    "random": {
+      "remaining": 3.875,
+      "tests_to_k3_capped9": 5.75,
+      "top1_exact": 0.45625,
+      "top3_exact": 0.80625,
+      "top1_equivalent": 0.8875,
+      "consistency_top1_exact": 0.4125,
+      "consistency_top3_exact": 0.8
+    },
+    "active": {
+      "remaining": 2.98125,
+      "tests_to_k3_capped9": 4.1125,
+      "top1_exact": 0.55625,
+      "top3_exact": 0.8625,
+      "top1_equivalent": 1,
+      "consistency_top1_exact": 0.5125,
+      "consistency_top3_exact": 0.8625
+    }
+  },
+  "normal_episodes": [
+    {
+      "family": 6,
+      "consistent_false_alarm": 0,
+      "ml_false_alarm": 0
+    },
+    {
+      "family": 7,
+      "consistent_false_alarm": 0,
+      "ml_false_alarm": 0
+    }
+  ],
+  "elapsed_seconds": 2.0199696710000126,
+  "test_families": [
+    6,
+    7
+  ],
+  "train_families": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "counterexamples": [
+    {
+      "row": {
+        "family": 6,
+        "seed": 0,
+        "policy": "fixed",
+        "hidden": 28,
+        "remaining": 5,
+        "tests_to_k3_capped9": 9,
+        "top1_exact": 0,
+        "top3_exact": 0,
+        "top1_equivalent": 1,
+        "equivalence_size": 3,
+        "consistency_top1_exact": 0,
+        "consistency_top3_exact": 1
+      },
+      "observations": [
+        {
+          "index": 0,
+          "vector": [
+            0,
+            0,
+            0
+          ],
+          "expected": 0,
+          "observed": 0
+        },
+        {
+          "index": 1,
+          "vector": [
+            0,
+            0,
+            1
+          ],
+          "expected": 0,
+          "observed": 0
+        },
+        {
+          "index": 2,
+          "vector": [
+            0,
+            0,
+            2
+          ],
+          "expected": 0,
+          "observed": 0
+        },
+        {
+          "index": 3,
+          "vector": [
+            0,
+            0,
+            3
+          ],
+          "expected": 0,
+          "observed": 0
+        },
+        {
+          "index": 4,
+          "vector": [
+            15,
+            15,
+            0
+          ],
+          "expected": 14,
+          "observed": 14
+        },
+        {
+          "index": 5,
+          "vector": [
+            15,
+            15,
+            1
+          ],
+          "expected": 15,
+          "observed": 15
+        },
+        {
+          "index": 6,
+          "vector": [
+            15,
+            15,
+            2
+          ],
+          "expected": 15,
+          "observed": 15
+        },
+        {
+          "index": 7,
+          "vector": [
+            15,
+            15,
+            3
+          ],
+          "expected": 0,
+          "observed": 15
+        }
+      ],
+      "prediction": "xor.not:stuck1",
+      "true": "xor.both:open"
+    },
+    {
+      "row": {
+        "family": 6,
+        "seed": 0,
+        "policy": "random",
+        "hidden": 28,
+        "remaining": 5,
+        "tests_to_k3_capped9": 9,
+        "top1_exact": 0,
+        "top3_exact": 0,
+        "top1_equivalent": 1,
+        "equivalence_size": 3,
+        "consistency_top1_exact": 0,
+        "consistency_top3_exact": 1
+      },
+      "observations": [
+        {
+          "index": 24,
+          "vector": [
+            11,
+            11,
+            3
+          ],
+          "expected": 0,
+          "observed": 11
+        },
+        {
+          "index": 41,
+          "vector": [
+            8,
+            1,
+            1
+          ],
+          "expected": 0,
+          "observed": 0
+        },
+        {
+          "index": 9,
+          "vector": [
+            0,
+            15,
+            1
+          ],
+          "expected": 0,
+          "observed": 0
+        },
+        {
+          "index": 31,
+          "vector": [
+            0,
+            11,
+            0
+          ],
+          "expected": 11,
+          "observed": 11
+        },
+        {
+          "index": 27,
+          "vector": [
+            13,
+            0,
+            1
+          ],
+          "expected": 0,
+          "observed": 0
+        },
+        {
+          "index": 42,
+          "vector": [
+            8,
+            6,
+            2
+          ],
+          "expected": 14,
+          "observed": 14
+        },
+        {
+          "index": 14,
+          "vector": [
+            15,
+            0,
+            2
+          ],
+          "expected": 15,
+          "observed": 15
+        },
+        {
+          "index": 1,
+          "vector": [
+            0,
+            0,
+            1
+          ],
+          "expected": 0,
+          "observed": 0
+        }
+      ],
+      "prediction": "xor.not:stuck1",
+      "true": "xor.both:open"
+    },
+    {
+      "row": {
+        "family": 6,
+        "seed": 0,
+        "policy": "active",
+        "hidden": 28,
+        "remaining": 3,
+        "tests_to_k3_capped9": 3,
+        "top1_exact": 0,
+        "top3_exact": 1,
+        "top1_equivalent": 1,
+        "equivalence_size": 3,
+        "consistency_top1_exact": 0,
+        "consistency_top3_exact": 1
+      },
+      "observations": [
+        {
+          "index": 34,
+          "vector": [
+            7,
+            14,
+            3
+          ],
+          "expected": 9,
+          "observed": 15
+        },
+        {
+          "index": 0,
+          "vector": [
+            0,
+            0,
+            0
+          ],
+          "expected": 0,
+          "observed": 0
+        },
+        {
+          "index": 3,
+          "vector": [
+            0,
+            0,
+            3
+          ],
+          "expected": 0,
+          "observed": 0
+        },
+        {
+          "index": 1,
+          "vector": [
+            0,
+            0,
+            1
+          ],
+          "expected": 0,
+          "observed": 0
+        },
+        {
+          "index": 2,
+          "vector": [
+            0,
+            0,
+            2
+          ],
+          "expected": 0,
+          "observed": 0
+        },
+        {
+          "index": 4,
+          "vector": [
+            15,
+            15,
+            0
+          ],
+          "expected": 14,
+          "observed": 14
+        },
+        {
+          "index": 5,
+          "vector": [
+            15,
+            15,
+            1
+          ],
+          "expected": 15,
+          "observed": 15
+        },
+        {
+          "index": 6,
+          "vector": [
+            15,
+            15,
+            2
+          ],
+          "expected": 15,
+          "observed": 15
+        }
+      ],
+      "prediction": "xor.not:stuck1",
+      "true": "xor.both:open"
+    }
+  ],
+  "censoring": "9 means not narrowed to <=3 after eight tests"
+}

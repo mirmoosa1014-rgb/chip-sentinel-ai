@@ -1,0 +1,7 @@
+# Model card
+
+A seven-feature logistic candidate ranker is trained with batch gradient descent, L2 regularization, and positive-class weighting on 140 simulator episodes from complete families 0–3. Features are bias, candidate consistency fraction, candidate-to-observation bit error, observed mismatch fraction, normal-hypothesis indicator, gate fan-in, and evidence fraction. Neither hidden site ID nor one-hot labels enter inference. The class weight is 25, 100 epochs, learning rate .15, L2 .001; these were fixed before test evaluation. Training labels identify the actual injected hypothesis, though equivalent hypotheses may carry conflicting labels. That ambiguity is a genuine limitation.
+
+Validation families 4–5 are reserved but not used for tuning. Test families 6–7 contain output-buffer structures absent from training. Weights, schema, seed and split IDs are in `models/ranker.json`. Training seed is 130. Scores are **not calibrated probabilities**. A deterministic hypothesis ordering is the fallback when no model exists. The UI displays scores, consistency, and remaining candidates independently. ML does not drive entropy test selection, and this implementation does not claim a learned policy outperforms model-based selection.
+
+Generalization is only assessed within this small synthetic family generator. Do not load weights from untrusted sources or use results to certify hardware. Counterexamples are in `results/metrics.json`.
