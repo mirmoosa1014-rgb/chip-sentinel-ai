@@ -9,3 +9,6 @@ frontend/dist/
 !.env.example
 .DS_Store
 results/run.log
+
+# Generated live-browser screenshots and test downloads
+artifacts/browser/

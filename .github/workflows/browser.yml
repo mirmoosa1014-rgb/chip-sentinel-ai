@@ -1,0 +1,38 @@
+name: browser-verification
+on:
+  push:
+    branches: [main, "design/**"]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  screenshots-and-controls:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+      - name: Install locked frontend and browser test dependencies
+        run: npm ci --prefix frontend
+      - name: Install matching Linux Chromium and system libraries
+        run: frontend/node_modules/.bin/playwright install --with-deps chromium
+      - name: Build the production workbench
+        run: npm run build --prefix frontend
+      - name: Verify live controls and capture desktop/mobile/reduced-motion
+        run: npm run verify:browser --prefix frontend
+      - name: Preserve verification report and authentic screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: chip-sentinel-browser-evidence
+          path: artifacts/browser/
+          if-no-files-found: warn
+          retention-days: 7

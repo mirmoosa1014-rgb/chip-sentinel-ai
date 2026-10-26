@@ -19,3 +19,9 @@ The app diagnoses combinational ALU bus faults. The separate register primitive 
 New verification after recovery: `tests/test_integration.py` adds real loopback HTTP and optional FastAPI integration tests; scientific implementation and fixed seeds remain unchanged.
 
 Final browser verification used the bundled Chromium headless shell in the same network namespace as the live Python server. No source changes were needed after browser verification.
+
+## Editorial Swiss redesign
+
+Replaced the generic dark card dashboard with a warm-paper ruled diagnostic bench, setup/readout rail, actual 3D circuit schematic, candidate register and evidence ledger. Exact upstream exported CSS tokens and finite entrance motion are imported; MIT attribution is in THIRD_PARTY_NOTICES.md and docs/design.md. Backend, model, and numeric datasets were frozen and are unchanged. Only the figure generator palette and image/GIF render assets changed. Production build passes. Current Mac Chrome aborts SIGABRT at launch under the execution sandbox, so redesigned desktop/mobile/reduced-motion screenshots remain pending; old screenshot files are historical only.
+
+Added a pinned Playwright Linux browser verification script/workflow for main, design/**, pull requests and manual dispatch. It captures four authentic viewport/motion screenshots, checks controls and live evidence, and uploads read-only CI artifacts; first hosted execution remains pending. No experiments or model training are invoked by the browser workflow.

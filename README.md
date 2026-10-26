@@ -10,11 +10,11 @@
 
 ## Workbench
 
-The React/TypeScript interface offers a draggable **3D circuit graph**, candidate heatmap, learned rank list, binary expected/observed trace, active-versus-fixed contraction plot, reproducible seed controls, a fault reveal toggle, and JSON evidence export. All displayed observations come from the Python simulator. The figures below are generated from real simulator outputs, not screenshots.
+The React/TypeScript interface offers a draggable **3D circuit graph**, candidate site map, learned rank list, binary expected/observed trace, active-versus-fixed contraction plot, reproducible seed controls, a fault reveal toggle, and JSON evidence export. All displayed observations come from the Python simulator. The bench uses a warm-paper Editorial Swiss layout with a setup rail, ruled schematic, candidate register and evidence ledger. [Design system and motion mapping](docs/design.md). The figures below are generated from real simulator outputs, not screenshots.
 
 ![Rotating generated netlist representation](docs/images/circuit-orbit.gif)
 
-![Actual running desktop workbench with circuit graph, diagnosis controls and evidence panels](docs/images/app.png)
+Current redesign screenshots are pending the Linux browser verification job. Its [workflow](.github/workflows/browser.yml) captures desktop/mobile/reduced-motion evidence and tests every control before publication. Earlier screenshot files are retained as historical artifacts and are not shown as evidence of this design.
 
 ## Run locally
 
@@ -75,6 +75,7 @@ All 11 tests pass: the original nine unit checks plus real HTTP and optional Fas
 - [90-second demo](docs/demo.md)
 - [Project summary](docs/project-summary.md)
 - [Recovery and current progress](docs/progress.md)
+- [Interface design and motion mapping](docs/design.md)
 
 Limitations include a small topology space, deterministic noiseless observations, single bus faults, no timing or metastability, no multi-fault episodes, fixed-size circuits, and limited independent normal-circuit scenarios. The register bank is tested separately; the UI diagnoses the combinational ALU, not sequential faults. No physical hardware, real users, awards, or field validation are claimed. Wider-ALU, per-bit faults, noisy evidence and learned active selection remain future work.
 
