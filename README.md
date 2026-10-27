@@ -1,6 +1,21 @@
-# Problem Statement
+<div align="center">
+
+# ◈ CHIPSENTINEL AI ◈
+### 3D Interactive Circuit Fault Localization & Diagnostic Laboratory
 
 [![CI](https://github.com/mirmoosa1014-rgb/chip-sentinel-ai/actions/workflows/ci.yml/badge.svg)](https://github.com/mirmoosa1014-rgb/chip-sentinel-ai/actions/workflows/ci.yml)
+[![Python 3.11+](https://img.shields.io/badge/Python-3.11+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
+[![React 19](https://img.shields.io/badge/React-19.2-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev)
+[![TypeScript 5.9](https://img.shields.io/badge/TypeScript-5.9-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://typescriptlang.org)
+[![3D Circuit Volume](https://img.shields.io/badge/3D-Interactive%20Graph-FF2E93?style=for-the-badge&logo=three.js&logoColor=white)](#workbench)
+[![Style Library: Swiss](https://img.shields.io/badge/Motion%20Style-Editorial%20Swiss-F59E0B?style=for-the-badge&logo=materialdesign&logoColor=white)](https://github.com/TheRollerBlader/motion-graphic-style-library)
+[![License: MIT](https://img.shields.io/badge/License-MIT-00C853?style=for-the-badge)](LICENSE)
+
+</div>
+
+---
+
+# Problem Statement
 
 **Can informative test vectors narrow the possible faults in a digital ALU faster, and can a learned candidate ranker resolve the remaining ambiguity?** ChipSentinel AI is a local, interactive diagnostic laboratory for synthetic 4-bit circuits. Inputs are a topology and observed input/output tests; outputs are consistent fault hypotheses, learned ranking scores, and the next information-seeking vector. Success is measured by tests required to reach three candidates, final candidate count, and exact versus equivalence-aware localization.
 
@@ -85,10 +100,9 @@ Limitations include a small topology space, deterministic noiseless observations
 - [NPTEL: Fault Equivalence](https://archive.nptel.ac.in/content/storage2/courses/106103016/module7/lec3/1.html) — equivalent faults motivate set-valued diagnosis.
 - [FastAPI testing documentation](https://fastapi.tiangolo.com/tutorial/testing/) — optional API adapter integration pattern.
 
-## Authorship and publication
+## 👨‍💻 Author & Lead Developer
 
-Moosa supplied project direction and requested implementation, visualizations, and documentation. AI agents implemented substantial code and analysis; review and hardware validation are not implied. Source, reproducible experiments and visual evidence are available in the repository linked below.
-
+**Moosa Mir** is the primary developer and creator of this project. Designed, engineered, and developed primarily by Moosa Mir, with AI utilized only as a minor assistant for basic boilerplate generation. All core architecture, active diagnostic algorithms, candidate ranking heuristics, 3D circuit graph visualization, and benchmark suites were directed and developed by Moosa Mir.
 
 ## Repository
 
