@@ -66,7 +66,12 @@ try{
   await page.setViewportSize(report.viewports.desktop);await snapshot('desktop-reduced-motion.png');
   record('reduced-motion desktop/mobile: no running animations');
 
-  await page.getByRole('button',{name:/^Run next test/}).click();await settled();
+  // The previous episode can still say "ready" before React starts the next request.
+  const nextResponse=page.waitForResponse(response=>response.url().endsWith('/api/diagnose')&&response.request().method()==='POST'&&response.request().postDataJSON()?.budget===4);
+  await page.getByRole('button',{name:/^Run next test/}).click();
+  assert.equal((await nextResponse).ok(),true,'The next-test request must succeed');
+  await page.waitForFunction(()=>document.querySelectorAll('.evidence-table tbody tr').length===4);
+  await settled();
   assert.equal(await page.locator('.evidence-table tbody tr').count(),4);
   const actual=await page.evaluate(async()=>{
     const response=await fetch('/api/diagnose',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({family:6,seed:31,budget:4,policy:'active'})});
