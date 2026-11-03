@@ -8,6 +8,10 @@ from urllib.error import HTTPError
 from chipsentinel.server import Handler
 
 class HTTPTests(unittest.TestCase):
+ def test_direct_diagnosis_rejects_non_objects(self):
+  from chipsentinel.api import diagnose
+  for payload in [None,[], 'invalid', 7, True]:
+   with self.subTest(payload=payload),self.assertRaises(ValueError):diagnose(payload)
  def test_real_http_static_and_simulation(self):
   server=ThreadingHTTPServer(('127.0.0.1',0),Handler)
   worker=Thread(target=server.serve_forever,daemon=True);worker.start()

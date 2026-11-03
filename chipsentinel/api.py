@@ -4,6 +4,7 @@ from .policy import vectors,consistent,recommend,features,table
 from .model import rank
 
 def diagnose(payload):
+    if not isinstance(payload,dict):raise ValueError('diagnosis payload must be a JSON object')
     family=payload.get('family',6); seed=payload.get('seed',31); budget=payload.get('budget',4)
     if type(family)!=int or family not in range(8) or type(seed)!=int or not 0<=seed<=100000 or type(budget)!=int or not 0<=budget<=8: raise ValueError('family 0–7, seed 0–100000, budget 0–8 required')
     import random
