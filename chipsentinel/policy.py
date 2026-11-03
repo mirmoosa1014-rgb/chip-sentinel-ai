@@ -14,6 +14,7 @@ def table(family):
 def consistent(family,observations):
     t=table(family); return [i for i,row in enumerate(t) if all(row[o['index']]==o['observed'] for o in observations)]
 def recommend(family,candidates,used,policy='active',seed=0):
+    if policy not in ('active','fixed','random'):raise ValueError('unknown test-selection policy')
     available=[i for i in range(len(vectors())) if i not in used]
     if not available: return None
     if policy=='fixed': return available[0]

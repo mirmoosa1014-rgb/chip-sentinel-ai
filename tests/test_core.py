@@ -22,6 +22,10 @@ class EngineTests(unittest.TestCase):
  def test_replay_and_hidden_independence(self):
   self.assertEqual(episode(6,5),episode(6,5));self.assertEqual(recommend(6,[0,1,2],[]),recommend(6,[0,1,2],[]))
   obs,_=episode(6,5);self.assertIn(5,consistent(6,obs))
+ def test_unknown_policy_rejected(self):
+  for policy in ['actve','nearest',None]:
+   with self.subTest(policy=policy),self.assertRaises(ValueError):recommend(6,[0,1],[],policy)
+   with self.subTest(policy=policy),self.assertRaises(ValueError):episode(6,5,policy=policy)
  def test_equivalence(self):
   c=alu(6);hs=c.hypotheses();a=next(i for i,h in enumerate(hs) if h.kind=='stuck0');b=next(i for i,h in enumerate(hs) if h.kind=='open' and h.site==hs[a].site);self.assertEqual(table(6)[a],table(6)[b])
  def test_no_fault(self):
