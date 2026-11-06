@@ -23,7 +23,11 @@ def train():
     MODEL.parent.mkdir(exist_ok=True); MODEL.write_text(json.dumps(data,indent=2)); return data
 
 def rank(family,observations):
-    if not MODEL.exists(): return [{'index':i,'score':0.0} for i in range(len(alu(family).hypotheses()))]
-    w=json.loads(MODEL.read_text())['weights']
+    try:
+        model=json.loads(MODEL.read_text());w=model['weights']
+        schema=['bias','consistency_fraction','bit_error_fraction','observed_fault_fraction','normal_candidate','gate_fanin','test_fraction']
+        if model['schema']!=schema or len(w)!=7 or not all(type(v) in (int,float) and math.isfinite(v) for v in w):raise ValueError('Invalid ranker schema')
+    except (OSError,ValueError,KeyError,TypeError):
+        return [{'index':i,'score':0.0} for i in range(len(alu(family).hypotheses()))]
     result=[{'index':h,'score':sigmoid(sum(a*b for a,b in zip(w,features(family,h,observations))))} for h in range(len(alu(family).hypotheses()))]
     return sorted(result,key=lambda r:(-r['score'],r['index']))
