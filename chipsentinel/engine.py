@@ -82,7 +82,7 @@ class RegisterBank:
         else:
             nxt=old[:]
             for dst,src in (writes or {}).items():
-                if dst not in range(4) or src not in range(4): raise ValueError('register index')
+                if type(dst) is not int or type(src) is not int or dst not in range(4) or src not in range(4): raise ValueError('register index')
                 nxt[dst]=old[src]&15
             self.values=nxt
         return self.values[:]
